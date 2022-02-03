@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\MessageCreated;
 use App\Models\Conversation;
 use App\Models\Recipients;
 use Illuminate\Http\Request;
@@ -87,6 +88,8 @@ class MessagesController extends Controller
                'last_message_id'=>$message->id
             ]);
             DB::commit();
+
+            broadcast(new MessageCreated($message));
         }catch (\Throwable $e){
             DB::rollBack();
             throw $e;
