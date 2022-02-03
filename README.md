@@ -3,4 +3,4 @@
 
 ## About Project
 
-Massenger system that acts like social media apps 
+Messenger system that acts like social media apps 
