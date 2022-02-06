@@ -30,7 +30,7 @@ class Conversation extends Model
     }
 
     public function lastMessage(){
-        return $this->belongsTo(Message::class,'last_messgae_id','id')
+        return $this->belongsTo(Message::class,'last_message_id','id')
             ->withDefault();
     }
 }

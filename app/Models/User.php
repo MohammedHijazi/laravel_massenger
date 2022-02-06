@@ -46,7 +46,7 @@ class User extends Authenticatable
         return $this->belongsToMany(Conversation::class,'participants')
             ->latest('last_message_id')
             ->withPivot([
-                'role','joines_at'
+                'role','joined_at'
             ]);
     }
     public function sent_messages(){

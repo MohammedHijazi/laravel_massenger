@@ -14,7 +14,14 @@ class MessengerController extends Controller
             ->orderBy('name')
             ->paginate();
 
-        $chats ="" ;//$user->conversations;
+        $chats =$user->conversations()->with([
+            'lastMessage',
+            'participants'=>function($builder) use ($user){
+                $builder->where('id','<>',$user->id);
+            }
+        ])->get();
+
+
         return view('messenger',[
             'friends'=>$friends,
             'chats'=>$chats
