@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Events\MessageCreated;
 use App\Models\Conversation;
 use App\Models\Recipients;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -34,22 +35,24 @@ class MessagesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'message'=> ['required','string'],
+            'message'=> 'required|string',
             'conversation_id' => [
                 Rule::requiredIf(function () use ($request){
                     return !$request->post('user_id');
                 }),
                 'int',
-                'exists:conversations,id'],
+                'exists:conversations,id'
+            ],
             'user_id' => [
                 Rule::requiredIf(function () use ($request){
                     return !$request->post('conversation_id');
                 }),
                 'int',
-                'exists:users,id'],
+                'exists:users,id'
+            ],
         ]);
 
-        $user= \App\Models\User::find(1); //Auth::user();
+        $user= User::find(1); //Auth::user();
         $conversation_id =$request->post('conversation_id');
         $user_id =$request->post('user_id');
 
@@ -84,9 +87,12 @@ class MessagesController extends Controller
             SELECT user_id,? FROM participants
             WHERE conversation_id=?
         ',[$message->id,$conversation->id]);
+
+
             $conversation->update([
                'last_message_id'=>$message->id
             ]);
+
             DB::commit();
 
             broadcast(new MessageCreated($message));
@@ -130,7 +136,7 @@ class MessagesController extends Controller
     public function destroy($id)
     {
         Recipients::where([
-          'user_id'=>Auth::user(),
+          'user_id'=>Auth::id(),
           'message_id'=>$id
         ])->delete();
         return [

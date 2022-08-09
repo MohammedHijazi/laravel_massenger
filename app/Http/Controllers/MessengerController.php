@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class MessengerController extends Controller
 {
-    public function index(){
+    public function index($id=null){
         $user = Auth::user();
         $friends=User::where('id','<>',$user->id)
             ->orderBy('name')
@@ -21,10 +21,16 @@ class MessengerController extends Controller
             }
         ])->get();
 
+        $messages =[];
+        if($id){
+            $messages = $chats->where('id',$id)->first()->messages()->with('user')->paginate();
+        }
+
 
         return view('messenger',[
             'friends'=>$friends,
-            'chats'=>$chats
+            'chats'=>$chats,
+            'messages'=>$messages,
         ]);
     }
 }

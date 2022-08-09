@@ -14,12 +14,8 @@ class CreateRecipientsTable extends Migration
     public function up()
     {
         Schema::create('recipients', function (Blueprint $table) {
-            $table->foreignId('user_id')
-                ->constrained('users')
-                ->cascadeOnDelete();
-            $table->foreignId('message_id')
-                ->constrained('messages')
-                ->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('message_id')->constrained('messages')->cascadeOnDelete();
             $table->timestamp('read_at')->nullable();
             $table->softDeletes();
             $table->primary(['message_id','user_id']);

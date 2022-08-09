@@ -19,6 +19,7 @@ class MessageCreated implements ShouldBroadcast
     public $message;
     /**
      * Create a new event instance.
+     * @param Message $message
      *
      * @return void
      */

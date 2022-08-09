@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[MessengerController::class,'index'] )->middleware('auth');
+Route::get('/{id?}',[MessengerController::class,'index'])
+    ->middleware('auth')
+    ->name('messenger');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
