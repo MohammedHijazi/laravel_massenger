@@ -14,7 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{id?}',[MessengerController::class,'index'])
+Route::get('/', function () {
+    return 'Hello World';
+})->middleware('auth');
+
+Route::get('/m/{id?}',[MessengerController::class,'index'])
     ->middleware('auth')
     ->name('messenger');
 

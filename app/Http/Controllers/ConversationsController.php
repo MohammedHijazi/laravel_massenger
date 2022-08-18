@@ -37,4 +37,6 @@ class ConversationsController extends Controller
 
         $conversation->participants()->detach($request->post('user_id'));
     }
+
+    
 }

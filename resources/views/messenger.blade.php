@@ -781,7 +781,7 @@
                                                 <div class="d-flex">
                                                     <div class="me-auto">Send you a friend request.</div>
 
-                                                    <div class="dropdown ms-5">
+                                                    <div class="dropdown ms-5">cs
                                                         <a class="icon text-muted" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
                                                         </a>
@@ -1732,8 +1732,7 @@
                 <!-- Chat: Content -->
                 <div class="chat-body hide-scrollbar flex-1 h-100">
                     <div class="chat-body-inner">
-                        <div class="py-6 py-lg-12">
-
+                        <div class="py-6 py-lg-12" id="chat-body">
                             @foreach($messages as $message)
                             <!-- Message -->
                             <div class="message @if($message->user_id == \Illuminate\Support\Facades\Auth::id()) message-out" @endif>
@@ -1815,7 +1814,11 @@
                     <!-- Chat: Files -->
 
                     <!-- Chat: Form -->
-                    <form class="chat-form rounded-pill bg-dark" data-emoji-form="">
+                    <form class="chat-form rounded-pill bg-dark" data-emoji-form="" method="post" action="{{ route('api.messages.store') }}">
+                        @csrf
+                        @if($activeChat)
+                            <input type="hidden" name="conversation_id" value="{{$activeChat->id}}">
+                        @endif
                         <div class="row align-items-center gx-0">
                             <div class="col-auto">
                                 <a href="#" class="btn btn-icon btn-link text-body rounded-circle" id="dz-btn">
@@ -1825,7 +1828,7 @@
 
                             <div class="col">
                                 <div class="input-group">
-                                    <textarea class="form-control px-0" placeholder="Type your message..." rows="1" data-emoji-input="" data-autosize="true"></textarea>
+                                    <textarea name="message" class="form-control px-0" placeholder="Type your message..." rows="1" data-emoji-input="" data-autosize="true"></textarea>
 
                                     <a href="#" class="input-group-text text-body pe-0" data-emoji-btn="">
                                                 <span class="icon icon-lg">
@@ -1836,8 +1839,10 @@
                             </div>
 
                             <div class="col-auto">
-                                <button class="btn btn-icon btn-primary rounded-circle ms-5">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                                <button type="submit" class="btn btn-icon btn-primary rounded-circle ms-5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line>
+                                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                    </svg>
                                 </button>
                             </div>
                         </div>
@@ -2871,7 +2876,27 @@
 </div>
 
 <!-- Scripts -->
-<script src="{{asset('assets/js/vendor.js')}}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script><script src="{{asset('assets/js/vendor.js')}}"></script>
 <script src="{{asset('assets/js/template.js')}}"></script>
+<script src="{{asset('assets/js/messenger.js')}}"></script>
+<script src="https://js.pusher.com/7.2/pusher.min.js"></script>
+<script>
+
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('bceef6ed4685747574e3', {
+        cluster: 'ap2'
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+        alert(JSON.stringify(data));
+    });
+</script>
+
 </body>
 </html>

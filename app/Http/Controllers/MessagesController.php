@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Response;
 
 class MessagesController extends Controller
 {
@@ -30,7 +31,7 @@ class MessagesController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
@@ -52,7 +53,7 @@ class MessagesController extends Controller
             ],
         ]);
 
-        $user= User::find(1); //Auth::user();
+        $user= Auth::user();
         $conversation_id =$request->post('conversation_id');
         $user_id =$request->post('user_id');
 
@@ -101,7 +102,9 @@ class MessagesController extends Controller
             throw $e;
         }
 
-        return $message;
+        return Response::json([
+            'message'=>$message
+        ],201);
     }
 
     /**
