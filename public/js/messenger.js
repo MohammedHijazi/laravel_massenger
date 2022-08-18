@@ -1,11 +1,11 @@
-$('chat-form').on('submit', function(e) {
-    e.preventDefault();
+$('.chat-form').on('submit', function(event) {
+    event.preventDefault();
     let msg = $(this).find('textarea').val();
     $.post($(this).attr('action'),$(this).serialize(), function(data) {
 
     });
     $('#chat-body').append(
-        `<div class="message" >
+        `<div class="message message-out" >
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#modal-profile" class="avatar avatar-responsive">
                                     <img class="avatar-img" src="#" alt="">
                                 </a>
