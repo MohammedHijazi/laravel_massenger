@@ -26,7 +26,7 @@ class MessengerController extends Controller
         $messages =[];
         if($id!=null){
             $activeChat = $chats->where('id',$id)->first();
-            $messages = $chats->where('id',$id)->first()->messages()->with('user')->paginate();
+            $messages = $chats->where('id',$id)->first()->messages()->with('user')->get();
         }
 
 

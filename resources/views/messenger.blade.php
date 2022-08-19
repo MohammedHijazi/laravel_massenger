@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, shrink-to-fit=no, viewport-fit=cover">
     <title>Laravel Messenger</title>
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -107,10 +108,10 @@
             <li class="nav-item">
                 <a href="#" class="nav-link p-0 mt-lg-2" data-bs-toggle="modal" data-bs-target="#modal-profile">
                     <div class="avatar avatar-online mx-auto d-none d-xl-block">
-                        <img class="avatar-img" src="assets/img/avatars/1.jpg" alt="">
+                        <img class="avatar-img" src# alt="">
                     </div>
                     <div class="avatar avatar-online avatar-xs d-xl-none">
-                        <img class="avatar-img" src="assets/img/avatars/1.jpg" alt="">
+                        <img class="avatar-img" src# alt="">
                     </div>
                 </a>
             </li>
@@ -260,7 +261,7 @@
                                                     <div class="col-auto">
                                                         <div class="avatar ">
 
-                                                            <img class="avatar-img" src="assets/img/avatars/6.jpg" alt="">
+                                                            <img class="avatar-img" src="#" alt="">
 
 
                                                         </div>
@@ -293,7 +294,7 @@
                                                     <div class="col-auto">
                                                         <div class="avatar ">
 
-                                                            <img class="avatar-img" src="assets/img/avatars/5.jpg" alt="">
+                                                            <img class="avatar-img" src="#" alt="">
 
 
                                                         </div>
@@ -353,7 +354,7 @@
                                                     <div class="col-auto">
                                                         <div class="avatar avatar-online">
 
-                                                            <img class="avatar-img" src="assets/img/avatars/8.jpg" alt="">
+                                                            <img class="avatar-img" src="#" alt="">
 
 
                                                         </div>
@@ -413,7 +414,7 @@
                                                     <div class="col-auto">
                                                         <div class="avatar ">
 
-                                                            <img class="avatar-img" src="assets/img/avatars/11.jpg" alt="">
+                                                            <img class="avatar-img" src="#" alt="">
 
 
                                                         </div>
@@ -479,7 +480,7 @@
                                                     <div class="col-auto">
                                                         <div class="avatar ">
 
-                                                            <img class="avatar-img" src="assets/img/avatars/4.jpg" alt="">
+                                                            <img class="avatar-img" src="#" alt="">
 
 
                                                         </div>
@@ -506,7 +507,7 @@
                                                     <div class="col-auto">
                                                         <div class="avatar avatar-online">
 
-                                                            <img class="avatar-img" src="assets/img/avatars/7.jpg" alt="">
+                                                            <img class="avatar-img" src="#" alt="">
 
 
                                                         </div>
@@ -762,7 +763,7 @@
                                             <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <a href="#" class="avatar">
-                                                    <img class="avatar-img" src="assets/img/avatars/11.jpg" alt="">
+                                                    <img class="avatar-img" src="#" alt="">
 
                                                     <div class="badge badge-circle bg-primary border-outline position-absolute bottom-0 end-0">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
@@ -931,7 +932,7 @@
                                             <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <a href="#" class="avatar">
-                                                    <img class="avatar-img" src="assets/img/avatars/7.jpg" alt="">
+                                                    <img class="avatar-img" src="#" alt="">
 
                                                     <div class="badge badge-circle bg-primary border-outline position-absolute bottom-0 end-0">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
@@ -975,7 +976,7 @@
                                             <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <a href="#" class="avatar">
-                                                    <img class="avatar-img" src="assets/img/avatars/9.jpg" alt="">
+                                                    <img class="avatar-img" src="#" alt="">
 
                                                     <div class="badge badge-circle bg-primary border-outline position-absolute bottom-0 end-0">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
@@ -1132,7 +1133,7 @@
                                 </div>
 
                                 <div class="card border-0">
-                                    <img src="assets/img/demos/light.jpg" class="card-img-top" alt="...">
+                                    <img src="#" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <div class="row align-items-center gx-0">
                                             <div class="col">
@@ -1149,7 +1150,7 @@
                                 </div>
 
                                 <div class="card border-0">
-                                    <img src="assets/img/demos/dark.jpg" class="card-img-top" alt="...">
+                                    <img src="#" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <div class="row align-items-center gx-0">
                                             <div class="col">
@@ -1275,7 +1276,7 @@
                                     <div class="row align-items-center gx-5">
                                         <div class="col-auto">
                                             <div class="avatar">
-                                                <img src="assets/img/avatars/1.jpg" alt="#" class="avatar-img">
+                                                <img src# alt="#" class="avatar-img">
 
                                                 <div class="badge badge-circle bg-secondary border-outline position-absolute bottom-0 end-0">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
@@ -1678,7 +1679,7 @@
                                     <div class="row align-items-center gx-5">
                                         <div class="col-auto">
                                             <div class="avatar avatar-online d-none d-xl-inline-block">
-                                                <img class="avatar-img" src="assets/img/avatars/2.jpg" alt="">
+                                                <img class="avatar-img" src="#" alt="">
                                             </div>
                                         </div>
 
@@ -1702,11 +1703,11 @@
                                         <div class="col-auto">
                                             <div class="avatar-group">
                                                 <a href="#" class="avatar avatar-sm" data-bs-toggle="modal" data-bs-target="#modal-user-profile">
-                                                    <img class="avatar-img" src="assets/img/avatars/2.jpg" alt="#">
+                                                    <img class="avatar-img" src="#" alt="#">
                                                 </a>
 
                                                 <a href="#" class="avatar avatar-sm" data-bs-toggle="modal" data-bs-target="#modal-profile">
-                                                    <img class="avatar-img" src="assets/img/avatars/1.jpg" alt="#">
+                                                    <img class="avatar-img" src# alt="#">
                                                 </a>
                                             </div>
                                         </div>
@@ -1915,7 +1916,7 @@
                 <div class="row gy-6">
                     <div class="col-12">
                         <div class="avatar avatar-xl mx-auto">
-                            <img src="assets/img/avatars/2.jpg" alt="#" class="avatar-img">
+                            <img src="#" alt="#" class="avatar-img">
 
                             <a href="#" class="badge badge-lg badge-circle bg-primary text-white border-outline position-absolute bottom-0 end-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
@@ -2038,56 +2039,56 @@
                 <div class="tab-pane fade" id="offcanvas-tab-media" role="tabpanel">
                     <div class="row row-cols-3 g-3 py-6">
                         <div class="col">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="assets/img/chat/media-1.jpg">
-                                <img class="img-fluid rounded" src="assets/img/chat/1.jpg" alt="">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="#">
+                                <img class="img-fluid rounded" src="#" alt="">
                             </a>
                         </div>
 
                         <div class="col">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="assets/img/chat/media-2.jpg">
-                                <img class="img-fluid rounded" src="assets/img/chat/2.jpg" alt="">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="#">
+                                <img class="img-fluid rounded" src="#" alt="">
                             </a>
                         </div>
 
                         <div class="col">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="assets/img/chat/media-3.jpg">
-                                <img class="img-fluid rounded" src="assets/img/chat/3.jpg" alt="">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="#">
+                                <img class="img-fluid rounded" src="#" alt="">
                             </a>
                         </div>
 
                         <div class="col">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="assets/img/chat/media-1.jpg">
-                                <img class="img-fluid rounded" src="assets/img/chat/4.jpg" alt="">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="#">
+                                <img class="img-fluid rounded" src="#" alt="">
                             </a>
                         </div>
 
                         <div class="col">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="assets/img/chat/media-2.jpg">
-                                <img class="img-fluid rounded" src="assets/img/chat/5.jpg" alt="">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="#">
+                                <img class="img-fluid rounded" src="#" alt="">
                             </a>
                         </div>
 
                         <div class="col">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="assets/img/chat/media-3.jpg">
-                                <img class="img-fluid rounded" src="assets/img/chat/6.jpg" alt="">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="#">
+                                <img class="img-fluid rounded" src="#" alt="">
                             </a>
                         </div>
 
                         <div class="col">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="assets/img/chat/media-1.jpg">
-                                <img class="img-fluid rounded" src="assets/img/chat/7.jpg" alt="">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="#">
+                                <img class="img-fluid rounded" src="#" alt="">
                             </a>
                         </div>
 
                         <div class="col">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="assets/img/chat/media-2.jpg">
-                                <img class="img-fluid rounded" src="assets/img/chat/8.jpg" alt="">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="#">
+                                <img class="img-fluid rounded" src="#" alt="">
                             </a>
                         </div>
 
                         <div class="col">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="assets/img/chat/media-3.jpg">
-                                <img class="img-fluid rounded" src="assets/img/chat/9.jpg" alt="">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal-media-preview" data-theme-img-url="#">
+                                <img class="img-fluid rounded" src="#" alt="">
                             </a>
                         </div>
                     </div>
@@ -2105,7 +2106,7 @@
                                 <div class="col-auto">
                                     <div class="avatar-group">
                                         <a href="#" class="avatar avatar-sm">
-                                            <img src="assets/img/avatars/2.jpg" class="avatar-img" alt="#">
+                                            <img src="#" class="avatar-img" alt="#">
                                         </a>
 
                                         <a href="#" class="avatar avatar-sm">
@@ -2182,7 +2183,7 @@
                                 <div class="col-auto">
                                     <div class="avatar-group">
                                         <a href="#" class="avatar avatar-sm">
-                                            <img class="avatar-img" src="assets/img/avatars/1.jpg" alt="#">
+                                            <img class="avatar-img" src# alt="#">
                                         </a>
 
                                         <a href="#" class="avatar avatar-sm">
@@ -2259,7 +2260,7 @@
                                 <div class="col-auto">
                                     <div class="avatar-group">
                                         <a href="#" class="avatar avatar-sm">
-                                            <img class="avatar-img" src="assets/img/avatars/2.jpg" alt="#">
+                                            <img class="avatar-img" src="#" alt="#">
                                         </a>
 
                                         <a href="#" class="avatar avatar-sm">
@@ -2336,7 +2337,7 @@
                                 <div class="col-auto">
                                     <div class="avatar-group">
                                         <a href="#" class="avatar avatar-sm">
-                                            <img class="avatar-img" src="assets/img/avatars/1.jpg" alt="#">
+                                            <img class="avatar-img" src# alt="#">
                                         </a>
 
                                         <a href="#" class="avatar avatar-sm">
@@ -2413,7 +2414,7 @@
                                 <div class="col-auto">
                                     <div class="avatar-group">
                                         <a href="#" class="avatar avatar-sm">
-                                            <img class="avatar-img" src="assets/img/avatars/2.jpg" alt="#">
+                                            <img class="avatar-img" src="#" alt="#">
                                         </a>
 
                                         <a href="#" class="avatar avatar-sm">
@@ -2579,7 +2580,7 @@
 
                     <div class="profile-body">
                         <div class="avatar avatar-xl">
-                            <img class="avatar-img" src="./assets/img/avatars/1.jpg" alt="#">
+                            <img class="avatar-img" src="#" alt="#">
                         </div>
 
                         <h4 class="mb-1">William Wright</h4>
@@ -2700,7 +2701,7 @@
 
                     <div class="profile-body">
                         <div class="avatar avatar-xl">
-                            <img class="avatar-img" src="./assets/img/avatars/9.jpg" alt="#">
+                            <img class="avatar-img" src="#" alt="#">
 
                             <a href="#" class="badge badge-lg badge-circle bg-primary text-white border-outline position-absolute bottom-0 end-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
@@ -2885,16 +2886,23 @@
 
 <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
 <script>
-
+    const userId = '{{\Illuminate\Support\Facades\Auth::id()}}';
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
 
-    var pusher = new Pusher('bceef6ed4685747574e3', {
-        cluster: 'ap2'
-    });
+    let pusher = new Pusher('bceef6ed4685747574e3', {
+        cluster: 'ap2',
+        authEndpoint: '/broadcasting/auth',
+        auth: {
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        },
+        authTransport: 'ajax'
+    })
 
-    var channel = pusher.subscribe('my-channel');
-    channel.bind('my-event', function(data) {
+    let channel = pusher.subscribe(`presence-Messenger.${userId}`);
+    channel.bind('new-message', function(data) {
         alert(JSON.stringify(data));
     });
 </script>
