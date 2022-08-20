@@ -15,26 +15,9 @@ class MessengerController extends Controller
             ->orderBy('name')
             ->paginate();
 
-        $chats =$user->conversations()->with([
-            'lastMessage',
-            'participants'=>function($builder) use ($user){
-                $builder->where('id','<>',$user->id);
-            }
-        ])->get();
-
-        $activeChat = null;
-        $messages =[];
-        if($id!=null){
-            $activeChat = $chats->where('id',$id)->first();
-            $messages = $chats->where('id',$id)->first()->messages()->with('user')->paginate();
-        }
-
 
         return view('messenger',[
             'friends'=>$friends,
-            'chats'=>$chats,
-            'messages'=>$messages,
-            'activeChat'=>$activeChat,
         ]);
     }
 }

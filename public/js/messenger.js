@@ -114,6 +114,7 @@ $('#chat-list').on('click', '[data-messages]', function(e) {
     e.preventDefault();
     let id = $(this).attr('data-messages');
     $('#chat-body').empty();
+    $('input[name="conversation_id"]').val(id);
     $.get('/api/conversations/'+id+'/messages', function(response) {
         $('#chat-name').text(response.conversation.participants[0].name);
         $('#chat-avatar').attr('src', response.conversation.participants[0].avatar_url);
