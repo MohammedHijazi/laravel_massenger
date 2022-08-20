@@ -17,14 +17,21 @@ class MessagesController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return array|\Illuminate\Http\Response
      */
     public function index($id)
     {
         $user = Auth::user();
-        $conversation=$user->conversations()->findOrFail($id);
+        $conversation=$user->conversations()
+            ->with(['participants'=>function($builder) use ($user){
+                $builder->where('id','<>',$user->id);
+            }])
+            ->findOrFail($id);
 
-        return $conversation->messages()->paginate();
+        return [
+            'conversation'=>$conversation,
+            'messages' => $conversation->messages()->with('user')->paginate()
+        ];
     }
 
     /**
@@ -96,14 +103,14 @@ class MessagesController extends Controller
 
             DB::commit();
 
-            broadcast(new MessageCreated($message));
+            broadcast(new MessageCreated($message->load('user')));
         }catch (\Throwable $e){
             DB::rollBack();
             throw $e;
         }
 
         return Response::json([
-            'message'=>$message
+            'message'=>$message->load('user')
         ],201);
     }
 

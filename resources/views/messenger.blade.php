@@ -1652,13 +1652,13 @@
                                     <div class="row align-items-center gx-5">
                                         <div class="col-auto">
                                             <div class="avatar avatar-online d-none d-xl-inline-block">
-                                                <img class="avatar-img" src="#" alt="">
+                                                <img id="chat-avatar" class="avatar-img" src="#" alt="">
                                             </div>
                                         </div>
 
                                         <div class="col overflow-hidden">
-                                            <h5 class="text-truncate">Ollie Chandler</h5>
-                                            <p class="text-truncate">is typing<span class='typing-dots'><span>.</span><span>.</span><span>.</span></span></p>
+                                            <h5 class="text-truncate" id="chat-name"></h5>
+                                            <p class="text-truncate d-none">is typing<span class='typing-dots'><span>.</span><span>.</span><span>.</span></span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -2877,7 +2877,7 @@
 
     let channel = pusher.subscribe(`presence-Messenger.${userId}`);
     channel.bind('new-message', function(data) {
-        addMessage(data.message.body);
+        addMessage(data.message);
     });
 </script>
 

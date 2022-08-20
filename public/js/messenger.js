@@ -2,9 +2,8 @@ $('.chat-form').on('submit', function(event) {
     event.preventDefault();
     let msg = $(this).find('textarea').val();
     $.post($(this).attr('action'),$(this).serialize(), function(data) {
-
+        addMessage(data,'message-out');
     });
-    addMessage(msg,'message-out');
 
     $(this).find('textarea').val('');
 })
@@ -13,14 +12,14 @@ const addMessage = (msg,c='') => {
     $('#chat-body').append(
         `<div class="message ${c}" >
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#modal-profile" class="avatar avatar-responsive">
-                                    <img class="avatar-img" src="#" alt="">
+                                    <img class="avatar-img" src="${msg.user.avatar_url}" alt="">
                                 </a>
 
                                 <div class="message-inner">
                                     <div class="message-body">
                                         <div class="message-content">
                                             <div class="message-text">
-                                                <p>${msg}</p>
+                                                <p>${msg.body}</p>
                                             </div>
 
                                             <!-- Dropdown -->
@@ -66,7 +65,7 @@ const addMessage = (msg,c='') => {
                                     </div>
 
                                     <div class="message-footer">
-                                        <span class="extra-small text-muted">Just Now</span>
+                                        <span class="extra-small text-muted">${moment(msg.created_at).fromNow()}</span>
                                     </div>
                                 </div>
                             </div>`)
@@ -82,7 +81,7 @@ const getConversation = () => {
 
 const conversation = (chat) => {
     $('#chat-list').append(`
-                                        <a href="#${chat.id}" class="card border-0 text-reset">
+                                        <a href="#${chat.id}" data-messages="${chat.id}" class="card border-0 text-reset">
                                         <div class="card-body">
                                             <div class="row gx-5">
                                                 <div class="col-auto">
@@ -109,6 +108,22 @@ const conversation = (chat) => {
 
     `)
 }
+
+
+$('#chat-list').on('click', '[data-messages]', function(e) {
+    e.preventDefault();
+    let id = $(this).attr('data-messages');
+    $('#chat-body').empty();
+    $.get('/api/conversations/'+id+'/messages', function(response) {
+        $('#chat-name').text(response.conversation.participants[0].name);
+        $('#chat-avatar').attr('src', response.conversation.participants[0].avatar_url);
+        for(i in response.messages.data) {
+            let msg = response.messages.data[i];
+            let c = msg.user_id == userId ? 'message-out' : '';
+            addMessage(msg,c);
+        }
+    });
+});
 
 $(document).ready(function() {
     getConversation();
