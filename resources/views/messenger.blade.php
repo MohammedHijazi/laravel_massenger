@@ -682,35 +682,8 @@
                             </div>
 
                             <!-- Chats -->
-                            <div class="card-list">
-                                @foreach($chats as $chat)
-                                    <!-- Card -->
-                                    <a href="{{route('messenger',$chat->id)}}" class="card border-0 text-reset">
-                                        <div class="card-body">
-                                            <div class="row gx-5">
-                                                <div class="col-auto">
-                                                    <div class="avatar avatar-online">
-                                                        <span class="avatar-text">{{strtoupper(substr($chat->participants[0]->name,0,1))}}</span>
-                                                    </div>
-                                                </div>
+                            <div class="card-list" id="chat-list">
 
-                                                <div class="col">
-                                                    <div class="d-flex align-items-center mb-3">
-                                                        <h5 class="me-auto mb-0">{{$chat->participants[0]->name}}</h5>
-                                                        <span class="text-muted extra-small ms-2">{{$chat->lastMessage->created_at->diffForHumans()}}</span>
-                                                    </div>
-
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="line-clamp me-auto">
-                                                            {{\Illuminate\Support\Str::words($chat->lastMessage->body,20)}}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- .card-body -->
-                                    </a>
-                                    <!-- Card -->
-                                @endforeach
                             </div>
                             <!-- Chats -->
                         </div>
@@ -2882,6 +2855,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script><script src="{{asset('assets/js/vendor.js')}}"></script>
 <script src="{{asset('assets/js/template.js')}}"></script>
+<script src="{{asset('js/moment.min.js')}}"></script>
 <script src="{{asset('js/messenger.js')}}"></script>
 
 <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
@@ -2903,7 +2877,7 @@
 
     let channel = pusher.subscribe(`presence-Messenger.${userId}`);
     channel.bind('new-message', function(data) {
-        alert(JSON.stringify(data));
+        addMessage(data.message.body);
     });
 </script>
 

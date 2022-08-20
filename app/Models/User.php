@@ -33,6 +33,10 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $appends = [
+        'avatar_url',
+    ];
+
     /**
      * The attributes that should be cast.
      *
@@ -58,5 +62,9 @@ class User extends Authenticatable
             ->withPivot([
                'read_at','deleted_at'
             ]);
+    }
+
+    public function getAvatarUrlAttribute(){
+        return 'https://ui-avatars.com/api/?name='.$this->name.'&background=0D8ABC&color=fff';
     }
 }
