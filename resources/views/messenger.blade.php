@@ -661,33 +661,7 @@
                 <div class="d-flex flex-column h-100 position-relative">
                     <div class="hide-scrollbar">
 
-                        <div class="container py-8">
-                            <!-- Title -->
-                            <div class="mb-8">
-                                <h2 class="fw-bold m-0">Chats</h2>
-                            </div>
-
-                            <!-- Search -->
-                            <div class="mb-6">
-                                <form action="#">
-                                    <div class="input-group">
-                                        <div class="input-group-text">
-                                            <div class="icon icon-lg">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                                            </div>
-                                        </div>
-
-                                        <input type="text" class="form-control form-control-lg ps-0" placeholder="Search messages or users" aria-label="Search for messages or users...">
-                                    </div>
-                                </form>
-                            </div>
-
-                            <!-- Chats -->
-                            <div class="card-list" id="chat-list">
-
-                            </div>
-                            <!-- Chats -->
-                        </div>
+                        <chat-list />
 
                     </div>
                 </div>
@@ -1629,7 +1603,7 @@
     <!-- Sidebar -->
 
     <!-- Chat -->
-    <Messenger />
+        <Messenger />
     <!-- Chat -->
 
     <!-- Chat: Info -->
@@ -2661,6 +2635,7 @@
 <script src="{{asset('js/manifest.js')}}"></script>
 <script src="{{asset('js/vendor.js')}}"></script>
 <script src="{{asset('js/messages.js')}}"></script>
+{{--<script src="{{asset('js/messenger.js')}}"></script>--}}
 
 <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
 <script>
@@ -2696,3 +2671,4 @@
 {{--        components: {Messenger}--}}
 {{--    }--}}
 {{--</script>--}}
+
