@@ -22,7 +22,7 @@
 
         <!-- Chats -->
         <div class="card-list" id="chat-list">
-            <a v-for="conversation in conversations" v-bind:key="conversation.id" v-bind:href="'#'+conversation.id" @click.prevent="" class="card border-0 text-reset">
+            <a v-for="conversation in conversations" v-bind:key="conversation.id" v-bind:href="'#'+conversation.id" @click.prevent="setConversation(conversation)" class="card border-0 text-reset">
                 <div class="card-body">
                     <div class="row gx-5">
                         <div class="col-auto">
@@ -62,6 +62,9 @@ export default {
     methods:{
         moment(time){
             return moment(time);
+        },
+        setConversation(conversation){
+            this.$root.conversation = conversation
         }
     },
     mounted() {

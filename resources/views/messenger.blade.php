@@ -1603,7 +1603,7 @@
     <!-- Sidebar -->
 
     <!-- Chat -->
-        <Messenger />
+        <Messenger :conversation="conversation" :messages="messages" />
     <!-- Chat -->
 
     <!-- Chat: Info -->
