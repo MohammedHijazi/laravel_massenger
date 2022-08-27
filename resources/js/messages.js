@@ -8,7 +8,14 @@ const chatApp = createApp({
         return {
             conversation:null,
             messages: [],
+            userId: userId,
+            csrfToken: csrfToken
         }
+    },
+    methods: {
+        moment(time){
+            return moment(time);
+        },
     }})
     .component('Messenger',Messenger)
     .component('ChatList',ChatList)

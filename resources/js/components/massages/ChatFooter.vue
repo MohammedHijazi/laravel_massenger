@@ -7,8 +7,8 @@
 
         <!-- Chat: Form -->
         <form class="chat-form rounded-pill bg-dark" data-emoji-form="" method="post" action="/api/messages">
-            <input type="hidden" name="_token" :value="csrfToken">
-            <input type="hidden" name="conversation_id" value="">
+            <input type="hidden" name="_token" :value="$root.csrfToken">
+            <input type="hidden" name="conversation_id" :value="conversation ? conversation.id : 0">
 
             <div class="row align-items-center gx-0">
                 <div class="col-auto">
@@ -44,7 +44,10 @@
 
 <script>
 export default {
-    name: "ChatFooter"
+    name: "ChatFooter",
+    props: [
+        'conversation',
+    ],
 }
 </script>
 

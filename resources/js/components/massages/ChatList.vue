@@ -34,7 +34,7 @@
                         <div class="col">
                             <div class="d-flex align-items-center mb-3">
                                 <h5 class="me-auto mb-0">{{conversation.participants[0].name}}</h5>
-                                <span class="text-muted extra-small ms-2">{{moment(conversation.last_message.created_at).fromNow()}}</span>
+                                <span class="text-muted extra-small ms-2">{{$root.moment(conversation.last_message.created_at).fromNow()}}</span>
                             </div>
 
                             <div class="d-flex align-items-center">
@@ -60,9 +60,6 @@ export default {
         }
     },
     methods:{
-        moment(time){
-            return moment(time);
-        },
         setConversation(conversation){
             this.$root.conversation = conversation
         }
