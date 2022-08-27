@@ -3,4 +3,5 @@
 
 ## About Project
 
-Messenger system that acts like social media apps 
+Messenger app that works as popular messaging applications.
+Build with Laravel and Vue.js.
