@@ -27,8 +27,12 @@ export default {
     components: {ChatFooter, ChatHeader , ChatContent},
     props:[
         'conversation',
-        'messages'
     ],
+    data() {
+        return {
+            messages: [],
+        };
+    },
 
 }
 </script>

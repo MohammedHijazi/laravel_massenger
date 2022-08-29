@@ -7,7 +7,6 @@ const chatApp = createApp({
     data() {
         return {
             conversation:null,
-            messages: [],
             userId: userId,
             csrfToken: csrfToken
         }

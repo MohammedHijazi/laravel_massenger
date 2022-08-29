@@ -2,7 +2,7 @@
     <div class="chat-body hide-scrollbar flex-1 h-100">
         <div class="chat-body-inner">
             <div class="py-6 py-lg-12" id="chat-body">
-                <div v-for="message in messages" v-bind:key="message.id" class="message" :class="{'message-out' : message.user_id == $root.userId}" >
+                <div v-for="message in $parent.messages" v-bind:key="message.id" class="message" :class="{'message-out' : message.user_id == $root.userId}" >
                     <a href="#" data-bs-toggle="modal" data-bs-target="#modal-profile" class="avatar avatar-responsive">
                         <img class="avatar-img" v-bind:src="message.user.avatar_url" alt="">
                     </a>
@@ -57,7 +57,7 @@
                         </div>
 
                         <div class="message-footer">
-                            <span class="extra-small text-muted">{{ $root.moment(message.created_at)}}</span>
+                            <span class="extra-small text-muted">{{ $root.moment(message.created_at).fromNow()}}</span>
                         </div>
                     </div>
             </div>
@@ -75,7 +75,6 @@ export default {
     ],
     data() {
         return {
-            messages: [],
             fetched: 0,
         };
     },
@@ -84,7 +83,7 @@ export default {
             fetch('/api/conversations/'+`${this.conversation.id}`+'/messages')
                 .then(response => response.json())
                 .then(json => {
-                    this.messages = json.messages.data;
+                    this.$parent.messages = json.messages.data.reverse();
                 });
         }
     },
@@ -93,7 +92,7 @@ export default {
             fetch('/api/conversations/'+`${this.conversation.id}`+'/messages')
                 .then(response => response.json())
                 .then(json => {
-                    this.messages = json.messages.data;
+                    this.$parent.messages = json.messages.data.reverse();
                     this.fetched = this.conversation.id;
                 });
         }

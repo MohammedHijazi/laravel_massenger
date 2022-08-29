@@ -6,7 +6,7 @@
         <!-- Chat: Files -->
 
         <!-- Chat: Form -->
-        <form class="chat-form rounded-pill bg-dark" data-emoji-form="" method="post" action="/api/messages">
+        <form class="chat-form rounded-pill bg-dark" data-emoji-form="" method="post" action="/api/messages" @submit.prevent="sendMessage()">
             <input type="hidden" name="_token" :value="$root.csrfToken">
             <input type="hidden" name="conversation_id" :value="conversation ? conversation.id : 0">
 
@@ -19,12 +19,12 @@
 
                 <div class="col">
                     <div class="input-group">
-                        <textarea name="message" class="form-control px-0" placeholder="Type your message..." rows="1" data-emoji-input="" data-autosize="true"></textarea>
+                        <textarea name="message" v-model="message" class="form-control px-0" placeholder="Type your message..." rows="1" data-emoji-input="" data-autosize="true"></textarea>
 
                         <a href="#" class="input-group-text text-body pe-0" data-emoji-btn="">
-                                                <span class="icon icon-lg">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-smile"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
-                                                </span>
+                            <span class="icon icon-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-smile"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                            </span>
                         </a>
                     </div>
                 </div>
@@ -48,6 +48,32 @@ export default {
     props: [
         'conversation',
     ],
+    data() {
+        return {
+            message: '',
+        }
+    },
+    methods: {
+        sendMessage() {
+            let data = {
+                conversation_id: this.conversation.id,
+                message: this.message,
+            }
+            fetch('/api/messages',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': this.$root.csrfToken,
+                },
+                mode: 'cors',
+                body: JSON.stringify(data)
+            }).then(response => {return response.json()})
+                .then(json=> {
+                    this.$parent.messages.push(json);
+            });
+            this.message = '';
+        },
+    },
 }
 </script>
 

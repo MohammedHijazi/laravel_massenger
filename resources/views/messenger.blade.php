@@ -1603,7 +1603,7 @@
     <!-- Sidebar -->
 
     <!-- Chat -->
-        <Messenger :conversation="conversation" :messages="messages" />
+        <Messenger :conversation="conversation" />
     <!-- Chat -->
 
     <!-- Chat: Info -->
@@ -2640,40 +2640,15 @@
 <script src="{{asset('js/moment.min.js')}}"></script>
 <script src="{{asset('js/manifest.js')}}"></script>
 <script src="{{asset('js/vendor.js')}}"></script>
-{{--<script src="{{asset('js/messenger.js')}}"></script>--}}
+
 <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
 <script>
     const userId = '{{\Illuminate\Support\Facades\Auth::id()}}';
     const csrfToken = '{{csrf_token()}}';
 </script>
 <script src="{{asset('js/messages.js')}}"></script>
-{{--<script>--}}
-{{--    // Enable pusher logging - don't include this in production--}}
-{{--    Pusher.logToConsole = true;--}}
-
-{{--    let pusher = new Pusher('bceef6ed4685747574e3', {--}}
-{{--        cluster: 'ap2',--}}
-{{--        authEndpoint: '/broadcasting/auth',--}}
-{{--        auth: {--}}
-{{--            headers: {--}}
-{{--                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
-{{--            }--}}
-{{--        },--}}
-{{--        authTransport: 'ajax'--}}
-{{--    })--}}
-
-{{--    let channel = pusher.subscribe(`presence-Messenger.${userId}`);--}}
-{{--    channel.bind('new-message', function(data) {--}}
-{{--        addMessage(data.message);--}}
-{{--    });--}}
-{{--</script>--}}
 
 </body>
 </html>
-{{--<script>--}}
-{{--    import Messenger from "../js/components/massages/Messenger";--}}
-{{--    export default {--}}
-{{--        components: {Messenger}--}}
-{{--    }--}}
-{{--</script>--}}
+
 

@@ -81,30 +81,30 @@ const getConversation = () => {
 
 const conversation = (chat) => {
     $('#chat-list').append(`
-                                        <a href="#${chat.id}" data-messages="${chat.id}" class="card border-0 text-reset">
-                                        <div class="card-body">
-                                            <div class="row gx-5">
-                                                <div class="col-auto">
-                                                    <div class="avatar avatar-online">
-                                                        <img src="${chat.participants[0].avatar_url}">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col">
-                                                    <div class="d-flex align-items-center mb-3">
-                                                        <h5 class="me-auto mb-0">${chat.participants[0].name}</h5>
-                                                        <span class="text-muted extra-small ms-2">${moment(chat.last_message.created_at).fromNow()}</span>
-                                                    </div>
-
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="line-clamp me-auto">
-                                                            ${chat.last_message.body}
-                                                        </div>
-                                                    </div>
-                                                </div>
+                           <a href="#${chat.id}" data-messages="${chat.id}" class="card border-0 text-reset">
+                               <div class="card-body">
+                                   <div class="row gx-5">
+                                       <div class="col-auto">
+                                            <div class="avatar avatar-online">
+                                                <img src="${chat.participants[0].avatar_url}">
                                             </div>
-                                        </div><!-- .card-body -->
-                                    </a>
+                                       </div>
+
+                                       <div class="col">
+                                           <div class="d-flex align-items-center mb-3">
+                                               <h5 class="me-auto mb-0">${chat.participants[0].name}</h5>
+                                                   <span class="text-muted extra-small ms-2">${moment(chat.last_message.created_at).fromNow()}</span>
+                                               </div>
+
+                                               <div class="d-flex align-items-center">
+                                                   <div class="line-clamp me-auto">
+                                                        ${chat.last_message.body}
+                                                   </div>
+                                               </div>
+                                       </div>
+                                   </div>
+                               </div><!-- .card-body -->
+                           </a>
 
     `)
 }
