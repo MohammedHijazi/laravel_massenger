@@ -39,7 +39,7 @@ class MessageCreated implements ShouldBroadcast
             ->where('user_id','<>',$this->message->user_id)
             ->first();
 
-        return new PresenceChannel('Messenger.'.$receiver->id);
+        return new PresenceChannel('Messenger');
     }
 
     public function broadcastAs(): string
